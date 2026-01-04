@@ -339,7 +339,6 @@ void PanaAirPurifier::control(const fan::FanCall &call)
     }
 
     uint8_t newspeed = *call.get_speed();
-    ESP_LOGD(TAG, "currspeed %d, newspeed %d", currspeed, newspeed);
     newspeed = newspeed < currspeed ? newspeed + 4 : newspeed;
     this->button_queue.insert(this->button_queue.end(), newspeed-currspeed, PANAAQ_BUTTON_AIRVOLUME);
   }
